@@ -53,5 +53,5 @@ CREATE TABLE public.page_infos
 INSERT INTO page_infos (page_name , page_title, page_subtitle)
     VALUES ('home','La Ramada', 'Aplicación informativa');
 
-update users set role = 'root' where email = 'scarvajalc@unal.edu.co' 
+update users set role = 'root' where email = 'emilbert05@hotmail.com' 
 delete from users where email = 'u@u.u'; 
