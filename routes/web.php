@@ -30,24 +30,27 @@ Route::get('/test', function () {
     return view('test');
 });
 
-Route::get('/datos', 'TypeController@verInterfazAdministrativa');
+Route::middleware(['auth'])->group(function () {
+    
+	Route::get('/datos', 'TypeController@verInterfazAdministrativa');
 
-Route::post('/agregar-tipo', 'TypeController@addType')->name('agregar-tipo');
+	Route::post('/agregar-tipo', 'TypeController@addType')->name('agregar-tipo');
 
-Route::post('/eliminar-tipo', 'TypeController@deleteType')->name('eliminar-tipo');
+	Route::post('/eliminar-tipo', 'TypeController@deleteType')->name('eliminar-tipo');
 
-Route::post('/editar-tipo', 'TypeController@editType')->name('editar-tipo');
+	Route::post('/editar-tipo', 'TypeController@editType')->name('editar-tipo');
 
-Route::post('/add-pollutant', 'PollutantController@addPollutant')->name('add-pollutant');
+	Route::post('/add-pollutant', 'PollutantController@addPollutant')->name('add-pollutant');
 
-Route::post('/delete-pollutant', 'PollutantController@deletePollutant')->name('delete-pollutant');
+	Route::post('/delete-pollutant', 'PollutantController@deletePollutant')->name('delete-pollutant');
 
-Route::post('/edit-pollutant', 'PollutantController@editPollutant')->name('edit-pollutant');
+	Route::post('/edit-pollutant', 'PollutantController@editPollutant')->name('edit-pollutant');
 
-Route::post('/retrieve-pollutant', 'PollutantController@retrievePollutant');
+	Route::post('/retrieve-pollutant', 'PollutantController@retrievePollutant');
 
-Route::post('/changeHomeContent', 'HomeController@changePageContent')->name('changeHomeContent');;
+	Route::post('/changeHomeContent', 'HomeController@changePageContent')->name('changeHomeContent');
 
-Route::get('/adm', 'HomeController@loadAdminPage')->middleware('RootAdmin');;
+	Route::get('/adm', 'HomeController@loadAdminPage')->middleware('RootAdmin');
+});
 
 
